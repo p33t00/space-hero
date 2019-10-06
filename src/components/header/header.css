@@ -1,0 +1,26 @@
+/* nav>ul>li {
+    list-style-type: none;
+}
+
+.navbar .navbar-nav>li>a {
+    text-decoration: none;
+    padding: 0 1em;
+} */
+
+/* .navbar .navbar-nav>ul {
+    height: 100%;
+} */
+
+.sh-header {
+    margin: 1.5em 0 2.5em;
+}
+
+.sh-header>nav .navbar-nav {
+    flex-direction:row;
+    padding: 0;
+}
+
+.navbar {
+    padding: 0;
+}
+
