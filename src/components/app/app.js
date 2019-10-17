@@ -4,17 +4,17 @@ import Header from '../header';
 import ItemDetails from '../item-details';
 import ListItem from '../list-item';
 import RandomPlanet from '../random-planet';
-import SwapiService from '../../SwapiService';
+// import SwapiService from '../../SwapiService';
 
 export default class App extends React.Component {
   
   render() {
-    const swap = new SwapiService();
-    try{
-      swap.getAllStarships().then(resp => console.log(resp));
-    } catch(e){
-      console.error(e);
-    }
+    // const swap = new SwapiService();
+    // try{
+    //   swap.getAllStarships().then(resp => console.log(resp));
+    // } catch(e){
+    //   console.error(e);
+    // }
     return (
       <div className="app col no-gutters">
         <div className="row">

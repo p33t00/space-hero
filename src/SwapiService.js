@@ -19,7 +19,13 @@ class SwapiService {
         return resp.results;
     }
 
-    getPlanet(p) {
+    async getPlanet(p) {
+        const resp = await this.getRequest(`/planets/${p}`);
+        return this._transformPlanet({...resp, id:p});
+    }
+    
+    getRandPlanet() {
+        const p = Math.floor(Math.random() * Math.floor(25));
         return this.getRequest(`/planets/${p}`);
     }
 
@@ -35,6 +41,10 @@ class SwapiService {
     async getAllStarships() {
         const resp = await this.getRequest('/starships');
         return resp.results;
+    }
+
+    _transformPlanet(resp) {
+        return {id: resp.id, name: resp.name, created: resp.created, terrain: resp.terrain, population: resp.population, rotationPeriod: resp.rotation_period};
     }
 }
 

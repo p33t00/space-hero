@@ -4,4 +4,6 @@
 
 .sh-random-planet ul {
     margin: 0;
+    font-size: 1.4em;
+    padding-inline-start: 20px;
 }

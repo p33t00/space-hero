@@ -13,13 +13,14 @@
 
 .sh-header {
     margin: 1.5em 0 2.5em;
+    font-size: 1.4em;
 }
-
+/*
 .sh-header>nav .navbar-nav {
     flex-direction:row;
     padding: 0;
 }
-
+*/
 .navbar {
     padding: 0;
 }
