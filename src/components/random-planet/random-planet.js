@@ -1,57 +1,56 @@
-import React from 'react';
-import './random-planet.css';
-import SwapiService from '../../SwapiService';
+import React from "react";
+import "./random-planet.css";
+import RandPlanetView from "./random-planet-view";
+import Spinner from "../spinner";
+import SwapiService from "../../SwapiService";
+import SWError from '../sw-error/swerror';
 
 export default class RandomPlanet extends React.Component {
-    swapi = new SwapiService();
-    maxPlanetID = 19;
-    state = {
-        planet: {id: null}
-    };
+	swapi = new SwapiService();
+	maxPlanetID = 19;
+	state = {
+		planet: null,
+        loading: true,
+        error: false
+	};
 
-    constructor() {
-        super();
-        this.initPlanet();
+    /**
+     * Lifecycle hook
+     */
+    componentDidMount() {
+        this.initPlanet()
+        setInterval(() => this.initPlanet(), 5000);
     }
 
-    genRandID() {
-        return Math.floor(Math.random() * this.maxPlanetID + 1);
-    }
-
-    updatePlanet = (planet) => {
-        this.setState({planet});    // planet object has appropriate format and only "planet" is updated in state
-    }
+	genRandID() {
+		return Math.floor(Math.random() * this.maxPlanetID + 1);
+	}
     
-    initPlanet() {
-        try {
-            this.swapi.getPlanet(this.genRandID())
-            .then(this.updatePlanet);   // don't need to explicitly pass response to updatePlanet
-        } catch (e) {
-            console.error(e);
-        }
+	updatePlanet = planet => {
+        this.setState({ planet, loading: false }); // planet object has appropriate format and only "planet" is updated in state
+	};
+    
+    initError() {
+        this.setState({loading: false, error: true});
     }
 
-    render () {
-        const {planet: {id,name,created,terrain,population,rotationPeriod}} = this.state;
-        return (
+	initPlanet() {
+        this.swapi.getPlanet(this.genRandID())
+        .then(this.updatePlanet) // don't need to explicitly pass response to updatePlanet
+        .catch(e => this.initError());
+	}
+
+	render() {
+        const {planet,loading, error} = this.state;
+		const content = loading ? <Spinner /> : 
+            error ? <SWError/> : <RandPlanetView planet={planet}/>;
+
+		return (
             <div className="sh-random-planet col-12 border border-secondary rounded-sm my-sm-4 p-2">
-                <div className="row align-items-center">
-                    <div className="col">
-                        <img className="img-fluid mx-auto mx-sm-0 d-block" 
-                            height="150" width="150" 
-                            src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}/>
-                    </div>
-                    <div className="col-auto mx-auto ml-sm-0 mr-sm-3 d-block">
-                        <h3 className="h3">{name}</h3>
-                        <ul>
-                            <li>Population <span>{population}</span></li>
-                            <li>Terrain <span>{terrain}</span></li>
-                            <li>Rotation Period <span>{rotationPeriod}</span></li>
-                            <li>Created <span>{created}</span></li>
-                        </ul>
-                    </div>
+			    <div className="row align-items-center justify-content-center">
+                    {content}
                 </div>
             </div>
         );
-    }
+	}
 }

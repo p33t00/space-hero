@@ -1,0 +1,7 @@
+.sw-error>div {
+    text-align: center;
+} 
+div .sw-error>div>img {
+    max-width: 5em;
+    max-height: 5em;
+}
