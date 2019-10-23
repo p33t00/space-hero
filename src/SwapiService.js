@@ -11,8 +11,10 @@ class SwapiService {
         return await resp.json();
     }
 
-    getPeople(p) {
-        return this.getRequest(`/people/${p}`);
+    async getPeople(p) {
+        // could use same approach as getPlanet()
+        const char = await this.getRequest(`/people/${p}`);
+        return this._transformChar(char);
     }
 
     async getAllPeople() {
@@ -24,11 +26,6 @@ class SwapiService {
         const resp = await this.getRequest(`/planets/${p}`);
         return this._transformPlanet({...resp, id:p});
     }
-
-    // getRandPlanet() {
-    //     const p = Math.floor(Math.random() * Math.floor(25));
-    //     return this.getRequest(`/planets/${p}`);
-    // }
 
     async getAllPlanets() {
         const resp = await this.getRequest('/planets');
@@ -46,6 +43,10 @@ class SwapiService {
 
     _transformPlanet(resp) {
         return {id: resp.id, name: resp.name, created: resp.created, terrain: resp.terrain, population: resp.population, rotationPeriod: resp.rotation_period};
+    }
+
+    _transformChar(resp) {
+        return Object.assign({}, resp, {id: this._extractIDFromURL(resp.url)});
     }
 
     _transformCharList(resp) {

@@ -7,14 +7,16 @@ import RandomPlanet from '../random-planet';
 // import SwapiService from '../../SwapiService';
 
 export default class App extends React.Component {
-  
+  state = {
+    characterID: null
+  }
+
+  onCharChange = (id) => {
+    this.setState({characterID: id});
+  }
+
   render() {
-    // const swap = new SwapiService();
-    // try{
-    //   swap.getAllStarships().then(resp => console.log(resp));
-    // } catch(e){
-    //   console.error(e);
-    // }
+    const {characterID: charID} = this.state;   // getting characterID and setting into charID
     return (
       <div className="app col no-gutters">
         <div className="row">
@@ -24,31 +26,10 @@ export default class App extends React.Component {
         <RandomPlanet/>
         </div>
         <div className="row d-flex my-sm-3 p-2 justify-content-between">
-          <ItemDetails/>
-          <ListItem/>
+          <ItemDetails characterID={charID}/>
+          <ListItem onCharChange={this.onCharChange} />
         </div>
       </div>
     );
   }
 }
-
-// function App() {
-//   const swap = new SwapiService();
-//   // try{
-//     // swap.getRequest('https://swapi.co/api/people/1').catch(e => console.log(e));
-//     console.log(swap.getPeople(1));
-//     // swap.getPeople(1);
-//   // } catch(e){
-//     // console.error(e);
-//   // }
-//   return (
-//     <div className="app">
-//       <header className="app-header">
-//       <p>hello there </p>
-//       {/* <p>{}</p> */}
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;

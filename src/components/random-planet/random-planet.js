@@ -19,7 +19,7 @@ export default class RandomPlanet extends React.Component {
      */
     componentDidMount() {
         this.initPlanet()
-        setInterval(() => this.initPlanet(), 5000);
+        setInterval(() => this.initPlanet(), 15000);
     }
 
 	genRandID() {
