@@ -13,7 +13,7 @@ export default class ListItem extends React.Component {
 		error: false
 	}
 
-	componentWillMount = () => {
+	componentDidMount = () => {
 		this.swapi.getAllPeople()
 		.then(c => this.setState({characters: c, loading: false}))
 		.catch(e => this.setState({loading: false, error: true}));

@@ -7,7 +7,9 @@ import SWError from '../sw-error/swerror';
 
 export default class RandomPlanet extends React.Component {
 	swapi = new SwapiService();
-	maxPlanetID = 19;
+    maxPlanetID = 19;
+    randomPlanetID;
+
 	state = {
 		planet: null,
         loading: true,
@@ -19,7 +21,12 @@ export default class RandomPlanet extends React.Component {
      */
     componentDidMount() {
         this.initPlanet()
-        setInterval(() => this.initPlanet(), 15000);
+        this.randomPlanetID = setInterval(() => this.initPlanet(), 15000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.randomPlanetID);
+        console.log('Random Planet COmponent Did Unmount');
     }
 
 	genRandID() {

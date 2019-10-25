@@ -4,7 +4,7 @@ const RandPlanetView = ({planet}) => {
 	const { id, name, created, terrain, population, rotationPeriod } = planet;
 	return (
         <React.Fragment>
-            <div className="col">
+            <div className="col-md-3 col-auto">
                 <img
                     className="img-fluid mx-auto mx-sm-0 d-block"
                     height="150"
@@ -25,7 +25,7 @@ const RandPlanetView = ({planet}) => {
                         Rotation Period <span>{rotationPeriod}</span>
                     </li>
                     <li>
-                        Created <span>{created}</span>
+                        Created <span>{`${created}  ${created}`}</span>
                     </li>
                 </ul>
             </div>
