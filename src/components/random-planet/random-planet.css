@@ -1,3 +1,19 @@
+.sh-random-planet {
+	justify-content: space-between;
+}
+
+.sh-random-planet>div {
+    margin: 0;
+}
+
+.sh-random-planet .rp-desc {
+	max-width: 350px;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-content: center;
+}
+
 .sh-random-planet>div>div>img {
     min-width: 150px;
 }
@@ -6,4 +22,20 @@
     margin: 0;
     font-size: 1.4em;
     padding-inline-start: 20px;
+}
+
+/*@media only screen and (max-width: 768px) {
+	.sh-random-planet {
+		justify-content: center;
+	}
+}*/
+
+@media only screen and (max-width: 575px) {
+	.sh-random-planet {
+		justify-content: center;
+	}
+
+	.sh-random-planet>div {
+	    width: 100%;
+	}
 }

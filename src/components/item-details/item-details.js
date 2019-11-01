@@ -11,7 +11,6 @@ export default class ItemDetails extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        this.foo.fdsa();
         if (this.props === prevProps) return;
 
         this.swapi.getPeople(this.props.characterID)
@@ -21,19 +20,8 @@ export default class ItemDetails extends React.Component {
     render () {
         const content = this.state.character ? <ItemDetailsView character={this.state.character} /> : <span>Select Character</span>;
         return (
-            <div className="sh-item-details order-sm-2 col-12 col-sm-8 ml-auto mb-4">
-                <div className="row justify-content-center justify-content-sm-end">
+            <div className="sh-item-details mb-4">
                     {content}
-                    {/* <img className="img-thumbnail" src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}/>
-                    <div>
-                            <ul>
-                                <li>Name: <span>{name}</span></li>
-                                <li>Gender: <span>{gender}</span></li>
-                                <li>Birthdate: <span>{birth_year}</span></li>
-                                <li>Eye Color: <span>{eye_color}</span></li>
-                            </ul>
-                    </div> */}
-                </div>
             </div>
         );
     }

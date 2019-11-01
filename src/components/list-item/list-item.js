@@ -28,12 +28,8 @@ export default class ListItem extends React.Component {
 			: error ? <SWError /> : <ListItemView onCharChange={this.onCharChange} characters={characters} />;
 
 		return (
-			<div className="sh-list-item col shadow-sm order-sm-1 p-1 bg-black rounded">
-				{/* <table className="table table-hover table-sm">
-					<tbody> */}
-						{content}
-					{/* </tbody>
-				</table> */}
+			<div className="sh-list-item col shadow-sm p-1 bg-black rounded">
+				{content}
 			</div>
 		);
 	}

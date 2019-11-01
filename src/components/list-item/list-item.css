@@ -1,4 +1,21 @@
-.app>div>.sh-list-item  {
-    min-width: 130px;
+/*mobile-first*/
+
+.sh-list-item  {
     font-size: 1.4em;
+	min-width: 100%
+}
+
+.sh-list-item .table {
+		width: 100%;
+		text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+	.sh-list-item {
+	    min-width: 130px;
+	}
+
+	.sh-list-item .table {
+		width: auto;
+	}
 }
