@@ -1,0 +1,9 @@
+.sh-people-page {
+	display: flex;
+}
+
+@media only screen and (max-width: 440px) {
+	.sh-people-page {
+		flex-wrap: wrap;
+	}
+}

@@ -28,7 +28,7 @@ export default class ListItem extends React.Component {
 			: error ? <SWError /> : <ListItemView onCharChange={this.onCharChange} characters={characters} />;
 
 		return (
-			<div className="sh-list-item col shadow-sm p-1 bg-black rounded">
+			<div className="sh-list-item shadow-sm p-1 bg-black rounded">
 				{content}
 			</div>
 		);

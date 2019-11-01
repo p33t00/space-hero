@@ -6,9 +6,7 @@ const RandPlanetView = ({planet}) => {
         <React.Fragment>
             <div className="col-auto col-md">
                 <img
-                    className="img-fluid mx-auto mx-sm-0 d-block"
-                    height="150"
-                    width="150"
+                    className="mx-auto mx-sm-0 d-block"
                     src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
                 />
             </div>
