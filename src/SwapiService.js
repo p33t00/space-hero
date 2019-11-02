@@ -17,7 +17,7 @@ class SwapiService {
         return this._transformChar(char);
     }
 
-    async getAllPeople() {
+    getAllPeople = async () => {
         const resp = await this.getRequest('/people');
         return this._transformCharList(resp.results);
     }
@@ -27,7 +27,7 @@ class SwapiService {
         return this._transformPlanet({...resp, id:p});
     }
 
-    async getAllPlanets() {
+    getAllPlanets = async () => {
         const resp = await this.getRequest('/planets');
         return resp.results;
     }
@@ -36,11 +36,12 @@ class SwapiService {
         return this.getRequest(`/starships/${s}`);
     }
     
-    async getAllStarships() {
+    getAllStarships = async () => {
         const resp = await this.getRequest('/starships');
         return resp.results;
     }
 
+    
     _transformPlanet(resp) {
         return {id: resp.id, name: resp.name, created: resp.created, terrain: resp.terrain, population: resp.population, rotationPeriod: resp.rotation_period};
     }

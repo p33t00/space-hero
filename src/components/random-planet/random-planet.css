@@ -1,5 +1,7 @@
 .sh-random-planet {
+	display: flex;
 	justify-content: space-between;
+	align-items: center;
 }
 
 .sh-random-planet>div {

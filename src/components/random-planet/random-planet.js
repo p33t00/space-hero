@@ -53,7 +53,7 @@ export default class RandomPlanet extends React.Component {
             error ? <SWError/> : <RandPlanetView planet={planet}/>;
 
 		return (
-            <div className="sh-random-planet row no-gutters align-items-center border border-secondary rounded-sm my-sm-4 p-2">
+            <div className="sh-random-planet no-gutters border border-secondary rounded-sm my-sm-4 p-2">
                 {content}
             </div>
         );

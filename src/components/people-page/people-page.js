@@ -10,7 +10,7 @@ export default class PeoplePage extends React.Component {
         hasError: false
     }
 
-    onCharChange = (id) => {
+    onItemChange = (id) => {
         this.setState({characterID: id});
     }
 
@@ -24,8 +24,8 @@ export default class PeoplePage extends React.Component {
         if (hasError) { return <SWError/>; }
         return (
         <div className="sh-people-page my-sm-3 p-2 justify-content-between no-gutters">
-          <ListItem onCharChange={this.onCharChange} />
-          <ItemDetails characterID={charID}/>
+          <ListItem onItemChange={this.onItemChange} getData={this.props.getAllPeople} />
+          <ItemDetails characterID={charID} />
         </div>
         );
     }
