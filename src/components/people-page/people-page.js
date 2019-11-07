@@ -24,7 +24,7 @@ export default class PeoplePage extends React.Component {
         if (hasError) { return <SWError/>; }
         return (
         <div className="sh-people-page my-sm-3 p-2 justify-content-between no-gutters">
-          <ListItem onItemChange={this.onItemChange} getData={this.props.getAllPeople} />
+          <ListItem onItemChangeClbk={this.onItemChange}/>
           <ItemDetails characterID={charID} />
         </div>
         );

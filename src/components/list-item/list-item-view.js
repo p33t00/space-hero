@@ -9,11 +9,13 @@ export default class ListItemView extends React.Component {
     render() {
         const {itemData, onItemChange} = this.props;
         return (
-            <table className="table table-hover table-sm">
-                <tbody>
-                    {this.formatData(itemData, onItemChange)}
-                </tbody>
-            </table>
+            <div className="sh-list-item shadow-sm p-1 bg-black rounded">
+                <table className="table table-hover table-sm">
+                    <tbody>
+                        {this.formatData(itemData, onItemChange)}
+                    </tbody>
+                </table>
+            </div>
         );
     }
 }
