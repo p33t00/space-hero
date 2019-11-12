@@ -1,7 +1,7 @@
 import React from 'react';
 import './people-page.css';
 import ItemDetails from '../item-details';
-import ListItem from '../list-item';
+import {PeopleList} from '../page-components';
 import SWError from '../sw-error/swerror';
 
 export default class PeoplePage extends React.Component {
@@ -24,7 +24,7 @@ export default class PeoplePage extends React.Component {
         if (hasError) { return <SWError/>; }
         return (
         <div className="sh-people-page my-sm-3 p-2 justify-content-between no-gutters">
-          <ListItem onItemChangeClbk={this.onItemChange}/>
+          <PeopleList onItemChangeClbk={this.onItemChange}/>
           <ItemDetails characterID={charID} />
         </div>
         );

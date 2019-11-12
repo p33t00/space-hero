@@ -6,8 +6,6 @@ import PeoplePage from '../people-page';
 import SwapiService from '../../SwapiService';
 
 export default class App extends React.Component {
-  swapi = new SwapiService();
-
   componentDidCatch() {
     console.error('something is wrong here');
     // put some disent error display here
@@ -22,7 +20,7 @@ export default class App extends React.Component {
         <section className="my-3">
           <RandomPlanet/>
         </section>
-        <PeoplePage getAllPeople={this.swapi.getAllPeople}/>
+        <PeoplePage/>
       </div>
     );
   }
