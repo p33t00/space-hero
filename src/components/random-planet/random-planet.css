@@ -5,11 +5,15 @@
 }
 
 .sh-random-planet>div {
-    margin: 0;
+	flex-basis: 0;
+    flex-grow: 1;
+	margin-right: 1rem;
+	
 }
 
 .sh-random-planet .rp-desc {
 	max-width: 350px;
+	min-width: 230px;
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
@@ -17,12 +21,12 @@
 }
 
 .sh-random-planet>div>img {
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: auto;
 }
 
 .sh-random-planet ul {
-    margin: 0;
+	margin: 0;
     font-size: 1.4em;
     padding-inline-start: 20px;
 }
@@ -30,17 +34,15 @@
 @media only screen and (max-width: 575px) {
 	.sh-random-planet {
 		justify-content: center;
+		flex-wrap: wrap;
+	}
+	
+	.sh-random-planet .rp-desc {
+		padding: 1rem;
 	}
 
-	.sh-random-planet>div {
-	    width: 100%;
-	}
-}
-
-@media only screen and (max-width: 350px) {
-	.sh-random-planet>div>img {
-	    max-width: 100%;
-	    width: auto;
-	    height: auto;
+	.sh-random-planet > div {
+		margin: 0;
+		text-align: center;
 	}
 }

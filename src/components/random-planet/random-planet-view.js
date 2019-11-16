@@ -4,9 +4,9 @@ const RandPlanetView = ({planet}) => {
 	const { id, name, created, terrain, population, rotationPeriod } = planet;
 	return (
         <React.Fragment>
-            <div className="col-auto col-md">
+            <div>
                 <img
-                    className="d-block"
+                    // className="d-block"
                     src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
                 />
             </div>

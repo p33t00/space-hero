@@ -1,6 +1,7 @@
 class SwapiService {
 
     _domain = 'https://swapi.co/api';
+    _baseImgUrl = 'https://starwars-visualguide.com/assets/img';
 
     async getRequest(url) {
         const resp = await fetch(this._domain + url);
@@ -11,7 +12,7 @@ class SwapiService {
         return await resp.json();
     }
 
-    async getPeople(p) {
+    getPeople = async (p) => {
         // could use same approach as getPlanet()
         const char = await this.getRequest(`/people/${p}`);
         return this._transformChar(char);
@@ -41,6 +42,9 @@ class SwapiService {
         return resp.results;
     }
 
+    getPeopleImgUrl = (id) => {
+        return `${this._baseImgUrl}/characters/${id}.jpg`;
+    }
     
     _transformPlanet(resp) {
         return {id: resp.id, name: resp.name, created: resp.created, terrain: resp.terrain, population: resp.population, rotationPeriod: resp.rotation_period};

@@ -3,10 +3,12 @@
 .sh-item-details {
 	display: flex;
 	align-items: flex-start;
-	flex-wrap: wrap;
 	width: 100%;
 	justify-content: center;
 	font-size: 1.4em;
+	flex-wrap: wrap;
+	margin-top: 1rem;
+	padding-left: 0.5rem;
 }
 
 .sh-item-details>img {
@@ -20,8 +22,9 @@
 @media only screen and (min-width: 768px) {
 	.sh-item-details {
 		margin-top: 2rem;
-		width: auto;
-		justify-content: flex-end;
+		width: 22rem;
+		justify-content: flex-start;
 		margin-top: 0;
+		flex-wrap: nowrap;
 	}
 }
