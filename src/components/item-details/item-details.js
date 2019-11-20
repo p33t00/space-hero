@@ -1,7 +1,7 @@
 import React from 'react';
 import './item-details.css';
 // import ItemDetailsView from './item-details-view';
-import SwapiService from "../../SwapiService";
+import SwapiService from "../../swapi-service-provider/SwapiService";
 // import SWError from '../sw-error/swerror';
 
 export default class ItemDetails extends React.Component {

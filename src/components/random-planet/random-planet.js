@@ -2,7 +2,7 @@ import React from "react";
 import "./random-planet.css";
 import RandPlanetView from "./random-planet-view";
 import Spinner from "../spinner";
-import SwapiService from "../../SwapiService";
+import SwapiService from "../../swapi-service-provider/SwapiService";
 import SWError from '../sw-error/swerror';
 
 export default class RandomPlanet extends React.Component {
