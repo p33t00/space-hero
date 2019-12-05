@@ -1,9 +1,11 @@
 import React from "react";
 import Spinner from "../spinner";
 import SWError from '../sw-error/swerror';
+import SwapiService from '../../SwapiService';
 
-const ListItemWrap = (View, dataProvider) => {
+const ListItemWrap = (View) => {
 	return class extends React.Component {
+		swapi = new SwapiService();
 		state = {
 			itemData: null,
 			loading: true,
@@ -11,7 +13,7 @@ const ListItemWrap = (View, dataProvider) => {
 		}
 
 		componentDidMount = () => {
-			dataProvider()
+			this.props.getData()
 			.then(c => this.setState({itemData: c, loading: false}))
 			.catch(e => this.setState({loading: false, hasError: true}));
 		}

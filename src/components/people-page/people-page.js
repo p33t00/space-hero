@@ -1,7 +1,7 @@
 import React from 'react';
 import './people-page.css';
-import ItemDetails from '../item-details';
-import {PeopleList} from '../page-components';
+// import {PlanetList, PlanetDetails} from '../page-components';
+import {PeopleList, PersonDetails} from '../page-components';
 import SWError from '../sw-error/swerror';
 
 export default class PeoplePage extends React.Component {
@@ -20,13 +20,16 @@ export default class PeoplePage extends React.Component {
 	}
 
     render() {
+		// console.log(PersonDetails);
         const {characterID: charID, hasError} = this.state;   // getting characterID and setting into charID
         if (hasError) { return <SWError/>; }
         return (
-        <div className="sh-people-page my-sm-3 p-2 justify-content-between no-gutters">
-          <PeopleList onItemChangeClbk={this.onItemChange}/>
-          <ItemDetails characterID={charID} />
-        </div>
+			<div className="sh-people-page my-sm-3 p-2 justify-content-between no-gutters">
+				{/* <PlanetList onItemChangeClbk={this.onItemChange}/>
+				<PlanetDetails itemID={charID} /> */}
+				<PeopleList onItemChangeClbk={this.onItemChange}/>
+				<PersonDetails itemID={charID} />
+			</div>
         );
     }
 }

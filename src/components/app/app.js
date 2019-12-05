@@ -4,10 +4,10 @@ import Header from '../header';
 import RandomPlanet from '../random-planet';
 import PeoplePage from '../people-page';
 import { SwapiServiceProvider } from '../../swapi-service-provider';
-// import { SwapiService } from '../../SwapiService';
+import SwapiService from '../../SwapiService';
 
 export default class App extends React.Component {
-  // swapi = new SwapiService();
+  swapi = new SwapiService();
 
   componentDidCatch() {
     console.error('something is wrong here');
@@ -16,7 +16,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <SwapiServiceProvider value={123}>
+      <SwapiServiceProvider value={this.swapi}>
         <div className="app col no-gutters">
           <div className="row">
           <Header/>
