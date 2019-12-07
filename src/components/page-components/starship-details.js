@@ -3,7 +3,7 @@ import ItemDetails from '../item-details';
 import withSwapiService from '../hoc-components/with-swapi-service';
 import ItemDetailsRow from './item-details-row';
 
-const mapStarshipDetails = swapi => {return {getItemData: swapi.getStarships, getImgUrl:swapi.getStarshipsImgUrl} }
+const mapStarshipDetails = swapi => {return {getItemData: swapi.getStarship, getImgUrl:swapi.getStarshipsImgUrl} }
 
 const StarshipDetails = (props) => {
 	return (

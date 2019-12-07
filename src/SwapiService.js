@@ -13,7 +13,6 @@ class SwapiService {
     }
 
     getPeople = async (p) => {
-        // could use same approach as getPlanet()
         const char = await this.getRequest(`/people/${p}`);
         return this._transform(char);
     }
@@ -23,7 +22,7 @@ class SwapiService {
         return this._transformList(resp.results);
     }
 
-    async getPlanet(p) {
+    getPlanet = async (p) => {
         const resp = await this.getRequest(`/planets/${p}`);
         return this._transform({...resp, id:p});
     }
@@ -33,9 +32,9 @@ class SwapiService {
         return this._transformList(resp.results);
     }
     
-    getStarship(s) {
-        const resp = this.getRequest(`/starships/${s}`);
-        return this._transform(resp.results);
+    getStarship = async (s) => {
+        const resp = await this.getRequest(`/starships/${s}`);
+        return this._transform(resp);
     }
     
     getAllStarships = async () => {
@@ -54,14 +53,6 @@ class SwapiService {
     getStarshipsImgUrl = (id) => {
         return `${this._baseImgUrl}/starships/${id}.jpg`;
     }
-    
-    // _transformPlanet(resp) {
-    //     return {id: resp.id, name: resp.name, created: resp.created, terrain: resp.terrain, population: resp.population, rotationPeriod: resp.rotation_period};
-    // }
-
-    // _transformStarships(resp) {
-    //     return {id: resp.id, name: resp.name, created: resp.created, terrain: resp.terrain, population: resp.population, rotationPeriod: resp.rotation_period};
-    // }
 
     _transform(resp) {
         return Object.assign({}, resp, {id: this._extractIDFromURL(resp.url)});

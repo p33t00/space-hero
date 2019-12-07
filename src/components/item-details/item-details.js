@@ -16,7 +16,7 @@ export default class ItemDetails extends React.Component {
         const {itemID, getItemData, getImgUrl} = this.props;
         getItemData(itemID)
         .then(data => {this.setState({itemData: data, imgUrl: getImgUrl(itemID)})})
-        .catch(e => console.error('Cannot get ItemData.'));
+        .catch(e => console.error(`Cannot get ItemData. ${e}`));
     }
     
     render () {

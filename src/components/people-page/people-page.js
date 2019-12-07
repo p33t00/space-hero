@@ -1,6 +1,7 @@
 import React from 'react';
 import './people-page.css';
-// import {PlanetList, PlanetDetails} from '../page-components';
+import {StarshipList, StarshipDetails} from '../page-components';
+import {PlanetList, PlanetDetails} from '../page-components';
 import {PeopleList, PersonDetails} from '../page-components';
 import SWError from '../sw-error/swerror';
 
@@ -25,10 +26,10 @@ export default class PeoplePage extends React.Component {
         if (hasError) { return <SWError/>; }
         return (
 			<div className="sh-people-page my-sm-3 p-2 justify-content-between no-gutters">
-				{/* <PlanetList onItemChangeClbk={this.onItemChange}/>
-				<PlanetDetails itemID={charID} /> */}
-				<PeopleList onItemChangeClbk={this.onItemChange}/>
-				<PersonDetails itemID={charID} />
+				<StarshipList onItemChangeClbk={this.onItemChange}/>
+				<StarshipDetails itemID={charID} />
+				{/* <PeopleList onItemChangeClbk={this.onItemChange}/>
+				<PersonDetails itemID={charID} /> */}
 			</div>
         );
     }
