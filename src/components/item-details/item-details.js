@@ -1,14 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './item-details.css';
-// import ItemDetailsView from './item-details-view';
-// import SwapiService from "../../SwapiService";
-// import SWError from '../sw-error/swerror';
 
 export default class ItemDetails extends React.Component {
-    // swapi = new SwapiService();
     state = {
         itemData: null,
         imgUrl: null
+    }
+
+    static propTypes = {
+        itemData: PropTypes.arrayOf(PropTypes.object).isRequired,
+        imgUrl: PropTypes.string.isRequired
     }
     
     componentDidUpdate(prevProps) {
