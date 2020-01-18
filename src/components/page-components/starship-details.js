@@ -9,8 +9,8 @@ const StarshipDetails = (props) => {
 	return (
 		<ItemDetails {...props}>
 			<ItemDetailsRow label={'name'} field={'name'}/>
-			<ItemDetailsRow label={'diameter'} field={'diameter'}/>
-			<ItemDetailsRow label={'population'} field={'population'}/>
+			<ItemDetailsRow label={'model'} field={'model'}/>
+			<ItemDetailsRow label={'starship class'} field={'starship_class'}/>
 		</ItemDetails>
 	);
 }
