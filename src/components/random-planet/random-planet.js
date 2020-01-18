@@ -20,8 +20,9 @@ export default class RandomPlanet extends React.Component {
      * Lifecycle hook
      */
     componentDidMount() {
+        const {swithInterval} = this.props;
         this.initPlanet()
-        this.randomPlanetID = setInterval(() => this.initPlanet(), 15000);
+        this.randomPlanetID = setInterval(() => this.initPlanet(), swithInterval);
     }
 
     componentWillUnmount() {
@@ -58,4 +59,8 @@ export default class RandomPlanet extends React.Component {
             </div>
         );
 	}
+}
+
+RandomPlanet.defaultProps = {
+    swithInterval: 15000
 }
