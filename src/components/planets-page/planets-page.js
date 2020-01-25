@@ -1,11 +1,8 @@
 import React from 'react';
-import './people-page.css';
-import {StarshipList, StarshipDetails} from '../page-components';
 import {PlanetList, PlanetDetails} from '../page-components';
-import {PeopleList, PersonDetails} from '../page-components';
 import SWError from '../sw-error/swerror';
 
-export default class PeoplePage extends React.Component {
+export default class PlanetsPage extends React.Component {
 	state = {
 		characterID: null,
 		hasError: false
@@ -21,15 +18,12 @@ export default class PeoplePage extends React.Component {
 	}
 
     render() {
-		// console.log(PersonDetails);
         const {characterID: charID, hasError} = this.state;   // getting characterID and setting into charID
         if (hasError) { return <SWError/>; }
         return (
 			<div className="sh-people-page my-sm-3 p-2 justify-content-between no-gutters">
-				{/* <StarshipList onItemChangeClbk={this.onItemChange}/>
-				<StarshipDetails itemID={charID} /> */}
-				<PeopleList onItemChangeClbk={this.onItemChange}/>
-				<PersonDetails itemID={charID} />
+				<PlanetList onItemChangeClbk={this.onItemChange}/>
+				<PlanetDetails itemID={charID} />
 			</div>
         );
     }
