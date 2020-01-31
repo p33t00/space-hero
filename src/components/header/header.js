@@ -28,13 +28,13 @@ export default class Header extends React.Component {
 					>
 						<ul className="navbar-nav ml-auto">
 							<li className="nav-item">
-								<Link to='/people' className="nav-link">People</Link>
+								<Link to='/people/' className="nav-link">People</Link>
 							</li>
 							<li className="nav-item">
-								<Link to='/planets' className="nav-link">Planets</Link>
+								<Link to='/planets/' className="nav-link">Planets</Link>
 							</li>
 							<li className="nav-item">
-								<Link to='/starships' className="nav-link">Starships</Link>
+								<Link to='/starships/' className="nav-link">Starships</Link>
 							</li>
 						</ul>
 					</div>

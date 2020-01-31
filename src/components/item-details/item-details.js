@@ -9,18 +9,27 @@ export default class ItemDetails extends React.Component {
     }
 
     static propTypes = {
-        itemData: PropTypes.arrayOf(PropTypes.object).isRequired,
-        imgUrl: PropTypes.string.isRequired
+        getItemData: PropTypes.func.isRequired,
+        getImgUrl: PropTypes.func.isRequired
     }
     
     componentDidUpdate(prevProps) {
         if (this.props === prevProps) return;
+        this.initData();
+    }
+
+    componentDidMount() {
+        this.initData();
+    }
+    
+    initData() {
+        if (this.props.itemID === null) return;
         const {itemID, getItemData, getImgUrl} = this.props;
         getItemData(itemID)
         .then(data => {this.setState({itemData: data, imgUrl: getImgUrl(itemID)})})
         .catch(e => console.error(`Cannot get ItemData. ${e}`));
     }
-    
+
     render () {
         if (!this.state.itemData) return <span>Select Character</span>;
         return (

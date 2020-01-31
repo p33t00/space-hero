@@ -6,6 +6,7 @@ import RandomPlanet from '../random-planet';
 import PeoplePage from '../people-page';
 import PlanetsPage from '../planets-page';
 import StarshipsPage from '../starships-page';
+import {StarshipDetails} from '../page-components';
 import { SwapiServiceProvider } from '../../swapi-service-provider';
 import SwapiService from '../../SwapiService';
 
@@ -32,7 +33,8 @@ export default class App extends React.Component {
             <Route path='/' exact render={() => <h2>Welcome to SW</h2>} />
             <Route path='/people' component={PeoplePage} />
             <Route path='/planets' component={PlanetsPage} />
-            <Route path='/starships' component={StarshipsPage} />
+            <Route path='/starships' exact component={StarshipsPage} />
+            <Route path='/starships/:id' render = {(props) => {return <StarshipDetails itemID={props.match.params.id} />}} />
 
           </div>
         </Router>
