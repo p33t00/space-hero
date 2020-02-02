@@ -31,7 +31,7 @@ export default class App extends React.Component {
             </section>
 
             <Route path='/' exact render={() => <h2>Welcome to SW</h2>} />
-            <Route path='/people' component={PeoplePage} />
+            <Route path='/people/:id?' component={PeoplePage} />
             <Route path='/planets' component={PlanetsPage} />
             <Route path='/starships' exact component={StarshipsPage} />
             <Route path='/starships/:id' render = {(props) => {return <StarshipDetails itemID={props.match.params.id} />}} />

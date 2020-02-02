@@ -1,36 +1,15 @@
 import React from 'react';
 import './people-page.css';
-import {StarshipList, StarshipDetails} from '../page-components';
-import {PlanetList, PlanetDetails} from '../page-components';
 import {PeopleList, PersonDetails} from '../page-components';
-import SWError from '../sw-error/swerror';
+import { withRouter } from 'react-router-dom';
 
-export default class PeoplePage extends React.Component {
-	state = {
-		characterID: null,
-		hasError: false
-	};
-
-	onItemChange = id => {
-		this.setState({ characterID: id });
-	};
-
-	componentDidCatch(error, info) {
-		// console.error(info);
-		this.setState({ hasError: true });
-	}
-
-    render() {
-		// console.log(PersonDetails);
-        const {characterID: charID, hasError} = this.state;   // getting characterID and setting into charID
-        if (hasError) { return <SWError/>; }
-        return (
-			<div className="sh-people-page my-sm-3 p-2 justify-content-between no-gutters">
-				{/* <StarshipList onItemChangeClbk={this.onItemChange}/>
-				<StarshipDetails itemID={charID} /> */}
-				<PeopleList onItemChangeClbk={this.onItemChange}/>
-				<PersonDetails itemID={charID} />
-			</div>
-        );
-    }
+const PeoplePage = (props) => {
+	return (
+		<div className="sh-people-page my-sm-3 p-2 justify-content-between no-gutters">
+			<PeopleList onItemChangeClbk={(id) => {props.history.push(id)}} />
+			<PersonDetails itemID={props.match.params.id} />
+		</div>
+	);
 }
+
+export default withRouter(PeoplePage);
